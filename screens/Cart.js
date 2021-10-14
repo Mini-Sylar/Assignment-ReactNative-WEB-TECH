@@ -7,6 +7,7 @@ import {
   AntDesign,
   FontAwesome5,
 } from "@expo/vector-icons";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 export default function Cart() {
   // Card Image
@@ -22,8 +23,8 @@ export default function Cart() {
             }}
             source={props.imageUri}
           />
-          <View>
-            <View style={{ width: "100%", flexDirection: "row" }}>
+          <View style={{flexDirection:"column"}}>
+            <View style={{width: "100%", flexDirection: "row" }}>
               <View
                 style={{
                   flexDirection: "row",
@@ -138,6 +139,7 @@ export default function Cart() {
           )}
         />
       </View>
+      {/* ENd */}
       <View
         style={{
           flex: 1,
@@ -151,6 +153,7 @@ export default function Cart() {
             flexDirection: "row",
             backgroundColor: "white",
             borderRadius: 30,
+            marginTop: 20,
           }}
         >
           <View style={{ marginHorizontal: 30 }}>
@@ -167,8 +170,38 @@ export default function Cart() {
           </View>
         </View>
       </View>
-      <View>
-          
+      <TouchableOpacity>
+        <View>
+          <View
+            style={{
+              backgroundColor: "orange",
+              alignSelf: "flex-start",
+              padding: 10,
+              paddingHorizontal: 60,
+              marginTop: 20,
+              borderRadius: 10,
+            }}
+          >
+            <Text style={{ fontSize: 24, color: "white" }}>
+              Proceed to Checkout
+            </Text>
+          </View>
+        </View>
+      </TouchableOpacity>
+      <View
+        style={{
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "center",
+          marginHorizontal: 20,
+          margin: 0,
+        }}
+      >
+        <Ionicons name="home" size={24} color="black" />
+        <FontAwesome5 name="microphone" size={24} color="black" />
+        <View style={{ flexDirection: "row" }}>
+          <FontAwesome5 name="shopping-bag" size={24} color="black" />
+        </View>
       </View>
     </View>
   );

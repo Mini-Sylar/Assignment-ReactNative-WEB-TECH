@@ -7,8 +7,10 @@ import {
   AntDesign,
   FontAwesome5,
 } from "@expo/vector-icons";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
-export default function Home() {
+export default function Home(params) {
+  const navigation = params.navigation;
   const bubbles = StyleSheet.create({
     container: {
       flex: 1,
@@ -45,7 +47,6 @@ export default function Home() {
           style={{
             width: "100%",
             height: 150,
-            backgroundColor: "blue",
             alignSelf: "flex-start",
             flex: 5,
           }}
@@ -139,7 +140,7 @@ export default function Home() {
               <Cards
                 name="Pinarello Bike"
                 amount="1,700.00"
-                imageUri={require("../assets/images/bike2.png")}
+                imageUri={require("../assets/images/bike3.png")}
               />
             ),
           },
@@ -148,7 +149,7 @@ export default function Home() {
               <Cards
                 name="Brompton Bike"
                 amount="1,500.00"
-                imageUri={require("../assets/images/bike2.png")}
+                imageUri={require("../assets/images/bike3.png")}
               />
             ),
           },
@@ -157,7 +158,7 @@ export default function Home() {
               <Cards
                 name="Scwhinn Bike"
                 amount="1,200.00"
-                imageUri={require("../assets/images/bike2.png")}
+                imageUri={require("../assets/images/bike3.png")}
               />
             ),
           },
@@ -166,7 +167,7 @@ export default function Home() {
               <Cards
                 name="Norco Bike"
                 amount="9,80.00"
-                imageUri={require("../assets/images/bike2.png")}
+                imageUri={require("../assets/images/bike3.png")}
               />
             ),
           },
@@ -198,7 +199,13 @@ export default function Home() {
           <Ionicons name="home" size={24} color="black" />
           <FontAwesome5 name="microphone" size={24} color="black" />
           <View style={{ flexDirection: "row" }}>
-            <FontAwesome5 name="shopping-bag" size={24} color="black" />
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate("Cart");
+              }}
+            >
+              <FontAwesome5 name="shopping-bag" size={24} color="black" />
+            </TouchableOpacity>
           </View>
         </View>
       </View>
