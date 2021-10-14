@@ -149,7 +149,7 @@ export default function Cart() {
         <View
           style={{
             flexDirection: "row",
-            backgroundColor: "gray",
+            backgroundColor: "white",
             borderRadius: 30,
           }}
         >
@@ -166,6 +166,9 @@ export default function Cart() {
             <Text style={{ fontSize: 24 }}>$3,500</Text>
           </View>
         </View>
+      </View>
+      <View>
+          
       </View>
     </View>
   );
