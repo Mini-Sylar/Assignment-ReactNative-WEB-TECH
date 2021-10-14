@@ -49,6 +49,7 @@ export default function Home(params) {
             height: 150,
             alignSelf: "flex-start",
             flex: 5,
+            resizeMode:"contain"
           }}
         />
         <Text
@@ -86,6 +87,7 @@ export default function Home(params) {
         flex: 1,
         paddingTop: 55,
         paddingHorizontal: 20,
+        margin: 0,
       }}
     >
       <View
@@ -113,7 +115,7 @@ export default function Home(params) {
       <View>
         <Text style={{ fontWeight: "bold", fontSize: 20 }}>Categories</Text>
       </View>
-      <View>
+      <View style={{ justifyContent: "center", alignItems: "center" }}>
         <FlatList
           horizontal={true}
           showsHorizontalScrollIndicator={false}
@@ -131,50 +133,55 @@ export default function Home(params) {
           )}
         />
       </View>
+
       <FlatList
         showsVerticalScrollIndicator={false}
         numColumns={2}
         data={[
           {
-            key: (
+            obj: (
               <Cards
                 name="Pinarello Bike"
                 amount="1,700.00"
                 imageUri={require("../assets/images/bike3.png")}
               />
             ),
+            key: 1,
           },
           {
-            key: (
+            obj: (
               <Cards
                 name="Brompton Bike"
                 amount="1,500.00"
-                imageUri={require("../assets/images/bike3.png")}
+                imageUri={require("../assets/images/bike4.png")}
               />
             ),
+            key: 2,
           },
           {
-            key: (
+            obj: (
               <Cards
                 name="Scwhinn Bike"
                 amount="1,200.00"
-                imageUri={require("../assets/images/bike3.png")}
+                imageUri={require("../assets/images/bike5.png")}
               />
             ),
+            key: 3,
           },
           {
-            key: (
+            obj: (
               <Cards
                 name="Norco Bike"
                 amount="9,80.00"
-                imageUri={require("../assets/images/bike3.png")}
+                imageUri={require("../assets/images/bike6.png")}
               />
             ),
+            key: 4,
           },
         ]}
         renderItem={({ item }) => (
           <View style={{ flex: 1, flexDirection: "row", marginTop: 30 }}>
-            {item.key}
+            {item.obj}
           </View>
         )}
       />

@@ -9,71 +9,100 @@ import {
 } from "@expo/vector-icons";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
-export default function Cart() {
+export default function Cart(params) {
   // Card Image
+  const navigation = params.navigation;
   const Checkout = (props) => {
     return (
-      <View style={{ width: "100%" }}>
-        <View style={{ flexDirection: "row" }}>
-          <Image
+      // Main View
+      <View
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          width: 450,
+          backgroundColor: "rgba(255,255,255,0.2)",
+          borderRadius: 10,
+          padding: 5,
+        }}
+      >
+        {/* Sub View  */}
+        <View
+          style={{
+            flexDirection: "row",
+            width: "100%",
+          }}
+        >
+          <View style={{ width: 100, marginRight: 10 }}>
+            <Image
+              source={props.imageUri}
+              style={{
+                width: "100%",
+                height: 120,
+                resizeMode: "contain",
+                borderRadius: 10,
+                backgroundColor: "rgba(255,255,255,0.2)",
+              }}
+            />
+          </View>
+          <View
             style={{
-              backgroundColor: "blue",
-              width: 100,
-              height: 100,
+              flexDirection: "column",
+              width: "100%",
             }}
-            source={props.imageUri}
-          />
-          <View style={{flexDirection:"column"}}>
-            <View style={{width: "100%", flexDirection: "row" }}>
-              <View
-                style={{
-                  flexDirection: "row",
-                  alignItems: "center",
-                  width: "200px",
-                }}
-              >
-                <Text style={{ fontSize: 24, color: "gray" }}>
+          >
+            <View
+              style={{
+                flexDirection: "row",
+                width: 300,
+                height: "30%",
+              }}
+            >
+              <View style={{ width: "100%" }}>
+                <Text
+                  style={{
+                    fontSize: 24,
+                    fontWeight: 500,
+                    color: "rgba(0,0,0,0.5)",
+                  }}
+                >
                   {props.bikename}
+                </Text>
+              </View>
+              <View style={{ width: "", height: 50 }}>
+                <FontAwesome name="trash-o" size={24} color="black" />
+              </View>
+            </View>
+            {/* SUb name starts */}
+            <View style={{ height: "40%" }}>
+              <Text style={{ color: "gray" }}>{props.subname}</Text>
+            </View>
+            {/* Sub name ends */}
+            {/* amount starts here */}
+            <View
+              style={{
+                flexDirection: "row",
+                width: 245,
+                height: "30%",
+              }}
+            >
+              <View style={{ width: "100%", height: "100%" }}>
+                <Text style={{ fontSize: 24, fontWeight: "bold" }}>
+                  <Text style={{ fontSize: 20, fontWeight: "bold", color:"orange" }}>
+                  $
+                </Text>{props.amount}
                 </Text>
               </View>
               <View
                 style={{
                   flexDirection: "row",
-                  justifyContent: "flex-end",
-                  width: "100%",
-                }}
-              >
-                <FontAwesome name="trash-o" size={24} color="black" />
-              </View>
-            </View>
-            {/* subname */}
-            <View><Text style={{ fontSize: 24, color: "gray" }}>{props.subname}</Text></View>
-            {/* Subname ends */}
-            {/* Ammount starts here */}
-            <View style={{ width: "100%", flexDirection: "row" }}>
-              <View
-                style={{
-                  flexDirection: "row",
-                  alignItems: "center",
-
-                  width: "200px",
-                }}
-              >
-                <Text style={{ fontSize: 24, color: "gray" }}>{props.amount}</Text>
-              </View>
-              <View
-                style={{
-                  flexDirection: "row",
-                  justifyContent: "flex-end",
-                  width: "100%",
                 }}
               >
                 <AntDesign name="minuscircleo" size={24} color="black" />
-                <Text style={{marginHorizontal:10}}>1</Text>
+                <Text style={{ marginHorizontal: 10 }}>1</Text>
                 <AntDesign name="pluscircle" size={24} color="orange" />
               </View>
             </View>
-            {/* Amount Ends Here */}
+            {/* Amount Ends here */}
           </View>
         </View>
       </View>
@@ -90,62 +119,81 @@ export default function Cart() {
           marginTop: 30,
         }}
       >
-        <AntDesign name="arrowleft" size={24} color="black" />
-        <Text style={{ fontSize: 24, fontWeight: "bold" }}>Cart Items</Text>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate("Home");
+          }}
+        >
+          <AntDesign name="arrowleft" size={24} color="black" />
+        </TouchableOpacity>
+        <View style={{ flexDirection: "column" }}>
+          <Text style={{ fontSize: 24, fontWeight: "bold" }}>Cart Items</Text>
+          <Text
+            style={{
+              fontSize: 16,
+              fontWeight: "bold",
+              textAlign: "center",
+              color: "rgba(0,0,0,0.4)",
+            }}
+          >
+            (3 Items)
+          </Text>
+        </View>
         <View style={{ flexDirection: "row" }}></View>
       </View>
-      {/* Probem exists only here */}
-      <View>
-        {/* List Here */}
-        <FlatList
-          showsVerticalScrollIndicator={false}
-          numColumns={1}
-          data={[
-            {
-              key: (
-                <Checkout
-                  bikename="Pinarello Bike"
-                  subname="Mountain Bike"
-                  amount="1,700.00"
-                  imageUri={require("../assets/images/bike2.png")}
-                />
-              ),
-            },
-            {
-              key: (
-                <Checkout
-                  bikename="Brompton Bike"
-                  subname="Road"
-                  amount="1,500.00"
-                  imageUri={require("../assets/images/bike2.png")}
-                />
-              ),
-            },
-            {
-              key: (
-                <Checkout
-                  bikename="Scwhinn Bike"
-                  subname="Urban"
-                  amount="1,200.00"
-                  imageUri={require("../assets/images/bike2.png")}
-                />
-              ),
-            },
-          ]}
-          renderItem={({ item }) => (
-            <View style={{ flex: 1, flexDirection: "row", marginTop: 30 }}>
-              {item.key}
-            </View>
-          )}
-        />
-      </View>
-      {/* ENd */}
+      <FlatList
+        showsVerticalScrollIndicator={false}
+        numColumns={1}
+        data={[
+          {
+            obj: (
+              <Checkout
+                bikename="Pinarello Bike"
+                subname="Mountain bike"
+                amount="1,700.00"
+                imageUri={require("../assets/images/bike3.png")}
+              />
+            ),
+            key: 1,
+          },
+          {
+            obj: (
+              <Checkout
+                bikename="Brompton Bike"
+                subname="Road bike"
+                amount="1,500.00"
+                imageUri={require("../assets/images/bike4.png")}
+              />
+            ),
+            key: 2,
+          },
+          {
+            obj: (
+              <Checkout
+                bikename="Pinarello Bike"
+                subname="Urban bike"
+                amount="1,200.00"
+                imageUri={require("../assets/images/bike5.png")}
+              />
+            ),
+            key: 3,
+          },
+        ]}
+        renderItem={({ item }) => (
+          <View style={{ flex: 1, flexDirection: "row", marginTop: 30 }}>
+            <Text>{item.obj}</Text>
+          </View>
+        )}
+      />
       <View
         style={{
           flex: 1,
           flexDirection: "row",
           marginTop: 30,
           borderRadius: 30,
+          flex: 1,
+          justifyContent: "center",
+          alignItems: "center",
         }}
       >
         <View
@@ -154,6 +202,9 @@ export default function Cart() {
             backgroundColor: "white",
             borderRadius: 30,
             marginTop: 20,
+            flex: 1,
+            justifyContent: "center",
+            alignItems: "center",
           }}
         >
           <View style={{ marginHorizontal: 30 }}>
@@ -171,15 +222,24 @@ export default function Cart() {
         </View>
       </View>
       <TouchableOpacity>
-        <View>
+        <View
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            marginTop: 60,
+          }}
+        >
           <View
             style={{
               backgroundColor: "orange",
-              alignSelf: "flex-start",
               padding: 10,
               paddingHorizontal: 60,
               marginTop: 20,
               borderRadius: 10,
+              justifyContent: "center",
+              alignItems: "center",
+              marginBottom: 20,
             }}
           >
             <Text style={{ fontSize: 24, color: "white" }}>
@@ -195,6 +255,7 @@ export default function Cart() {
           alignItems: "center",
           marginHorizontal: 20,
           margin: 0,
+          marginTop: 20,
         }}
       >
         <Ionicons name="home" size={24} color="black" />
