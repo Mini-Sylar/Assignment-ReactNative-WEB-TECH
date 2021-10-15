@@ -29,7 +29,7 @@ export default function Home(params) {
   });
 
   // Card Image
-  let Cards = (props) => {
+  const Cards = (props) => {
     return (
       <View
         style={{

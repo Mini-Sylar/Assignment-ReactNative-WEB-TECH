@@ -1,12 +1,125 @@
 import React from "react";
 import { View, Text, Image } from "react-native";
-import { Ionicons, AntDesign, FontAwesome5,FontAwesome } from "@expo/vector-icons";
+import {
+  Ionicons,
+  AntDesign,
+  FontAwesome5,
+  FontAwesome,
+} from "@expo/vector-icons";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import Checkout from "./utilities/Checkout.js";
 
 export default function Cart(params) {
   // Card Image
   const navigation = params.navigation;
+  const Checkout = (props) => {
+    return (
+      <View
+        style={{
+          flex: 3,
+          width: "100%",
+          height: "100%",
+          flexDirection: "row",
+          marginVertical: 5,
+          backgroundColor: "rgba(0,0,0,0.1)",
+          borderRadius: 10,
+          padding: 9,
+        }}
+      >
+        <View
+          style={{
+            flex: 0.5,
+            width: "10%",
+            height: "100%",
+
+            borderRadius: 20,
+          }}
+        >
+          <Image
+            source={require("../assets/images/bike4.png")}
+            style={{
+              flex: 1,
+              width: "100%",
+              height: "100%",
+              resizeMode: "center",
+              borderRadius: 50,
+            }}
+          />
+        </View>
+        <View
+          style={{
+            flex: 1,
+            width: "100%",
+            height: "100%",
+          }}
+        >
+          <View
+            style={{
+              flex: 1,
+              width: "100%",
+              height: "100%",
+              flexDirection: "row",
+              alignItems: "center",
+            }}
+          >
+            <Text
+              style={{
+                flex: 1,
+                width: "100%",
+                fontSize: 20,
+                color: "rgba(0,0,0,0.5)",
+                fontWeight: "600",
+              }}
+            >
+              {props.bikename}
+            </Text>
+            <FontAwesome name="trash-o" size={24} color="black" />
+          </View>
+          <View
+            style={{
+              flex: 2,
+              width: "100%",
+              height: 100,
+              justifyContent: "center",
+            }}
+          >
+            <Text
+              style={{
+                fontSize: 14,
+                color: "rgba(0,0,0,0.5)",
+              }}
+            >
+              {props.subname}
+            </Text>
+          </View>
+          <View
+            style={{
+              flex: 1,
+              width: "100%",
+              height: "100%",
+
+              flexDirection: "row",
+              alignItems: "center",
+            }}
+          >
+            <Text
+              style={{
+                flex: 1,
+                width: "100%",
+                fontSize: 20,
+                color: "rgba(0,0,0,0.5)",
+              }}
+            >
+              <Text style={{color:"orange",fontSize:16}}>$</Text>{props.amount}
+            </Text>
+            <AntDesign name="minuscircleo" size={24} color="black" />
+            <Text style={{ marginHorizontal: 10 }}>1</Text>
+            <AntDesign name="pluscircle" size={24} color="orange" />
+          </View>
+        </View>
+      </View>
+    );
+  };
+  // Main Component Starts Here
   return (
     <View style={{ flex: 1 }}>
       <View
@@ -40,145 +153,24 @@ export default function Cart(params) {
         <View style={{ flexDirection: "row" }}></View>
       </View>
       {/* NEWI  */}
-      <View
-        style={{
-          flex: 1,
-          width: "100%",
-          height: "100%",
-          backgroundColor: "gold",
-          flexDirection: "row",
-        }}
-      >
-        <View
-          style={{
-            flex: 0.5,
-            width: "10%",
-            height: "100%",
-            backgroundColor: "teal",
-          }}
-        >
-          <Image
-            source={require("../assets/images/bike4.png")}
-            style={{
-              flex: 1,
-              width: "100%",
-              height: "100%",
-              resizeMode: "center",
-              backgroundColor: "gold",
-              borderRadius: 50,
-            }}
-          />
-        </View>
-        <View
-          style={{
-            flex: 1,
-            width: "100%",
-            height: "100%",
-            backgroundColor: "brown",
-          }}
-        >
-          <View
-            style={{
-              flex: 1,
-              width: "100%",
-              height: "100%",
-              backgroundColor: "white",
-              flexDirection: "row",
-            }}
-          >
-            <Text
-              style={{
-                flex: 1,
-                width: "100%",
-                fontSize: 24,
-                color: "rgba(0,0,0,0.5)",
-                fontWeight:"600"
-              }}
-            >
-              Pinarello Bike
-            </Text>
-            <FontAwesome name="trash-o" size={24} color="black" />
-          </View>
-          <View
-            style={{
-              flex: 1,
-              width: "100%",
-              height: "100%",
-              backgroundColor: "purple",
-            }}
-          >
-            <Text>Mountain Bike</Text>
-          </View>
-          <View
-            style={{
-              flex: 1,
-              width: "100%",
-              height: "100%",
-              backgroundColor: "teal",
-              flexDirection: "row",
-            }}
-          >
-            <Text
-              style={{
-                flex: 1,
-                width: "100%",
-                fontSize: 24,
-                color: "rgba(0,0,0,0.5)",
-              }}
-            >
-              1,000.00
-            </Text>
-            <AntDesign name="minuscircleo" size={24} color="black" />
-            <Text style={{ marginHorizontal: 10 }}>1</Text>
-            <AntDesign name="pluscircle" size={24} color="orange" />
-          </View>
-        </View>
+      <View style={{ flex: 9, flexDirection: "column", margin: 20 }}>
+        <Checkout
+          bikename="Pinarello Bike"
+          subname="Mountain Bike"
+          amount="1,700.00"
+        />
+        <Checkout
+          bikename="Brompton Bike"
+          subname="Road Bike"
+          amount="1,500.00"
+        />
+        <Checkout
+          bikename="Pinarello Bike"
+          subname="Urban Bike"
+          amount="3,400.00"
+        />
       </View>
-      {/* NEWI  */}
-      {/* <FlatList
-        showsVerticalScrollIndicator={false}
-        numColumns={1}
-        data={[
-          {
-            obj: (
-              <Checkout
-                bikename="Pinarello Bike"
-                subname="Mountain bike"
-                amount="1,700.00"
-                imageUri={require("../assets/images/bike3.png")}
-              />
-            ),
-            key: 1,
-          },
-          {
-            obj: (
-              <Checkout
-                bikename="Brompton Bike"
-                subname="Road bike"
-                amount="1,500.00"
-                imageUri={require("../assets/images/bike4.png")}
-              />
-            ),
-            key: 2,
-          },
-          {
-            obj: (
-              <Checkout
-                bikename="Pinarello Bike"
-                subname="Urban bike"
-                amount="1,200.00"
-                imageUri={require("../assets/images/bike5.png")}
-              />
-            ),
-            key: 3,
-          },
-        ]}
-        renderItem={({ item }) => (
-          <View style={{ flex: 1, flexDirection: "row", marginTop: 30 }}>
-           {item.obj}
-          </View>
-        )}
-      /> */}
+
       <View
         style={{
           flex: 1,
