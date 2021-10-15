@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, Image } from "react-native";
-import { Ionicons, AntDesign, FontAwesome5 } from "@expo/vector-icons";
+import { Ionicons, AntDesign, FontAwesome5,FontAwesome } from "@expo/vector-icons";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import Checkout from "./utilities/Checkout.js";
 
@@ -83,8 +83,12 @@ export default function Cart(params) {
               width: "100%",
               height: "100%",
               backgroundColor: "white",
+              flexDirection: "row",
             }}
-          ></View>
+          >
+            <Text style={{ marginEnd: 150 }}>IPSUM LOREM</Text>
+            <FontAwesome name="trash-o" size={24} color="black" />
+          </View>
           <View
             style={{
               flex: 1,
@@ -93,7 +97,7 @@ export default function Cart(params) {
               backgroundColor: "purple",
             }}
           >
-            
+            <Text>IPSUM LOREM</Text>
           </View>
           <View
             style={{
@@ -101,9 +105,13 @@ export default function Cart(params) {
               width: "100%",
               height: "100%",
               backgroundColor: "teal",
+              flexDirection: "row",
             }}
           >
-            
+            <Text style={{ marginEnd: 100 }}>IPSUM LOREM</Text>
+            <AntDesign name="minuscircleo" size={24} color="black" />
+            <Text style={{ marginHorizontal: 10 }}>1</Text>
+            <AntDesign name="pluscircle" size={24} color="orange" />
           </View>
         </View>
       </View>
