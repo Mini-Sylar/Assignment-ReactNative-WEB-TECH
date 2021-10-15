@@ -86,7 +86,7 @@ export default function Cart(params) {
               flexDirection: "row",
             }}
           >
-            <Text style={{ marginEnd: 150 }}>IPSUM LOREM</Text>
+            <Text style={{ flex: 1, width: "100%" }}>IPSUM LOREM</Text>
             <FontAwesome name="trash-o" size={24} color="black" />
           </View>
           <View
@@ -108,7 +108,7 @@ export default function Cart(params) {
               flexDirection: "row",
             }}
           >
-            <Text style={{ marginEnd: 100 }}>IPSUM LOREM</Text>
+            <Text style={{ flex: 1, width: "100%" }}>IPSUM LOREM</Text>
             <AntDesign name="minuscircleo" size={24} color="black" />
             <Text style={{ marginHorizontal: 10 }}>1</Text>
             <AntDesign name="pluscircle" size={24} color="orange" />
