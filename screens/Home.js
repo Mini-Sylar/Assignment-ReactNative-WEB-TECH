@@ -1,6 +1,5 @@
 import React from "react";
 import { View, Text, StyleSheet, FlatList, Image } from "react-native";
-import { createStackNavigator } from "@react-navigation/stack";
 import {
   Ionicons,
   FontAwesome,
@@ -30,18 +29,20 @@ export default function Home(params) {
   });
 
   // Card Image
-  const Cards = (props) => {
+  let Cards = (props) => {
     return (
       <View
         style={{
           width: 150,
           height: 250,
-          backgroundColor: "rgba(0,0,0,0.2)",
+          backgroundColor: "rgba(1,1,1,0.1)",
           borderRadius: 10,
           marginHorizontal: 20,
         }}
       >
-        <Ionicons name="heart" size={24} color="red" />
+        <View style={{marginStart:122}}>
+          <Ionicons name="heart" size={24} color="red" />
+        </View>
         <Image
           source={props.imageUri}
           style={{
@@ -49,7 +50,7 @@ export default function Home(params) {
             height: 150,
             alignSelf: "flex-start",
             flex: 5,
-            resizeMode:"contain"
+            resizeMode: "contain",
           }}
         />
         <Text

@@ -1,9 +1,7 @@
 import React from "react";
-import { View, Text, StyleSheet,Image } from "react-native";
-import { createStackNavigator } from "@react-navigation/stack";
+import { View, Text, Image } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import {MaterialCommunityIcons,AntDesign} from "@expo/vector-icons"
-import { NavigationContainer } from "@react-navigation/native";
+import {AntDesign} from "@expo/vector-icons"
 
 export default function Login(params) {
   const navigation = params.navigation

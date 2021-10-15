@@ -1,116 +1,14 @@
 import React from "react";
-import { View, Text, StyleSheet, FlatList, Image } from "react-native";
-import { createStackNavigator } from "@react-navigation/stack";
-import {
-  Ionicons,
-  FontAwesome,
-  AntDesign,
-  FontAwesome5,
-} from "@expo/vector-icons";
+import { View, Text, Image } from "react-native";
+import { Ionicons, AntDesign, FontAwesome5 } from "@expo/vector-icons";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import Checkout from "./utilities/Checkout.js";
 
 export default function Cart(params) {
   // Card Image
   const navigation = params.navigation;
-  const Checkout = (props) => {
-    return (
-      // Main View
-      <View
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          width: 450,
-          backgroundColor: "rgba(255,255,255,0.2)",
-          borderRadius: 10,
-          padding: 5,
-        }}
-      >
-        {/* Sub View  */}
-        <View
-          style={{
-            flexDirection: "row",
-            width: "100%",
-          }}
-        >
-          <View style={{ width: 100, marginRight: 10 }}>
-            <Image
-              source={props.imageUri}
-              style={{
-                width: "100%",
-                height: 120,
-                resizeMode: "contain",
-                borderRadius: 10,
-                backgroundColor: "rgba(255,255,255,0.2)",
-              }}
-            />
-          </View>
-          <View
-            style={{
-              flexDirection: "column",
-              width: "100%",
-            }}
-          >
-            <View
-              style={{
-                flexDirection: "row",
-                width: 300,
-                height: "30%",
-              }}
-            >
-              <View style={{ width: "100%" }}>
-                <Text
-                  style={{
-                    fontSize: 24,
-                    fontWeight: 500,
-                    color: "rgba(0,0,0,0.5)",
-                  }}
-                >
-                  {props.bikename}
-                </Text>
-              </View>
-              <View style={{ width: "", height: 50 }}>
-                <FontAwesome name="trash-o" size={24} color="black" />
-              </View>
-            </View>
-            {/* SUb name starts */}
-            <View style={{ height: "40%" }}>
-              <Text style={{ color: "gray" }}>{props.subname}</Text>
-            </View>
-            {/* Sub name ends */}
-            {/* amount starts here */}
-            <View
-              style={{
-                flexDirection: "row",
-                width: 245,
-                height: "30%",
-              }}
-            >
-              <View style={{ width: "100%", height: "100%" }}>
-                <Text style={{ fontSize: 24, fontWeight: "bold" }}>
-                  <Text style={{ fontSize: 20, fontWeight: "bold", color:"orange" }}>
-                  $
-                </Text>{props.amount}
-                </Text>
-              </View>
-              <View
-                style={{
-                  flexDirection: "row",
-                }}
-              >
-                <AntDesign name="minuscircleo" size={24} color="black" />
-                <Text style={{ marginHorizontal: 10 }}>1</Text>
-                <AntDesign name="pluscircle" size={24} color="orange" />
-              </View>
-            </View>
-            {/* Amount Ends here */}
-          </View>
-        </View>
-      </View>
-    );
-  };
-
   return (
-    <View>
+    <View style={{ flex: 1 }}>
       <View
         style={{
           flexDirection: "row",
@@ -141,7 +39,101 @@ export default function Cart(params) {
         </View>
         <View style={{ flexDirection: "row" }}></View>
       </View>
-      <FlatList
+      {/* NEWI  */}
+      <View
+        style={{
+          flex: 1,
+          width: "100%",
+          height: "100%",
+          backgroundColor: "gold",
+          flexDirection: "row",
+        }}
+      >
+        <View
+          style={{
+            flex: 0.5,
+            width: "10%",
+            height: "100%",
+            backgroundColor: "teal",
+          }}
+        >
+          <Image
+            source={require("../assets/images/bike4.png")}
+            style={{
+              flex: 1,
+              width: "100%",
+              height: "100%",
+              resizeMode: "center",
+              backgroundColor: "gold",
+              borderRadius: 50,
+            }}
+          />
+        </View>
+        <View
+          style={{
+            flex: 1,
+            width: "100%",
+            height: "100%",
+            backgroundColor: "brown",
+          }}
+        >
+          <View
+            style={{
+              flex: 1,
+              width: "100%",
+              height: "100%",
+              backgroundColor: "white",
+            }}
+          ></View>
+          <View
+            style={{
+              flex: 1,
+              width: "100%",
+              height: "100%",
+              backgroundColor: "purple",
+            }}
+          >
+            
+          </View>
+          <View
+            style={{
+              flex: 1,
+              width: "100%",
+              height: "100%",
+              backgroundColor: "teal",
+            }}
+          >
+            
+          </View>
+        </View>
+      </View>
+      {/* <View style={{ marginBottom: 30 }}>
+        <Checkout
+          bikename="Pinarello Bike"
+          subname="Mountain bike"
+          amount="1,700.00"
+          imageUri={require("../assets/images/bike3.png")}
+        />
+      </View>
+      <View style={{ marginBottom: 30 }}>
+        <Checkout
+          bikename="Brompton Bike"
+          subname="Road bike"
+          amount="1,500.00"
+          imageUri={require("../assets/images/bike4.png")}
+        />
+      </View>
+      <View style={{ marginBottom: 30 }}>
+        {" "}
+        <Checkout
+          bikename="Pinarello Bike"
+          subname="Urban bike"
+          amount="1,200.00"
+          imageUri={require("../assets/images/bike5.png")}
+        />
+      </View> */}
+
+      {/* <FlatList
         showsVerticalScrollIndicator={false}
         numColumns={1}
         data={[
@@ -181,10 +173,10 @@ export default function Cart(params) {
         ]}
         renderItem={({ item }) => (
           <View style={{ flex: 1, flexDirection: "row", marginTop: 30 }}>
-            <Text>{item.obj}</Text>
+           {item.obj}
           </View>
         )}
-      />
+      /> */}
       <View
         style={{
           flex: 1,

@@ -14,7 +14,7 @@ export default function App() {
       <NavigationContainer>
         <MainNavigator.Navigator
           screenOptions={{ headerShown: false }}
-          initialRouteName="Login"
+          initialRouteName="Cart"
         >
           <MainNavigator.Screen name="Login" component={Login} />
           <MainNavigator.Screen name="Home" component={Home} />
