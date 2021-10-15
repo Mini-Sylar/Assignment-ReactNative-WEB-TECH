@@ -126,8 +126,8 @@ export default function Home(params) {
             { key: "Mountain" },
             { key: "Urban" },
             { key: "Olympics" },
-            { key: "Something" },
-            { key: "Something2" },
+            { key: "Dirt" },
+            { key: "Rough" },
           ]}
           renderItem={({ item }) => (
             <Text style={bubbles.item}>{item.key}</Text>

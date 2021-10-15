@@ -20,7 +20,7 @@ export default function Cart(params) {
           height: "100%",
           flexDirection: "row",
           marginVertical: 5,
-          backgroundColor: "rgba(0,0,0,0.1)",
+          backgroundColor: "white",
           borderRadius: 10,
           padding: 9,
         }}
@@ -35,7 +35,7 @@ export default function Cart(params) {
           }}
         >
           <Image
-            source={require("../assets/images/bike4.png")}
+            source={props.imageuri}
             style={{
               flex: 1,
               width: "100%",
@@ -67,7 +67,7 @@ export default function Cart(params) {
                 width: "100%",
                 fontSize: 20,
                 color: "rgba(0,0,0,0.5)",
-                fontWeight: "600",
+                fontWeight: "bold",
               }}
             >
               {props.bikename}
@@ -96,7 +96,6 @@ export default function Cart(params) {
               flex: 1,
               width: "100%",
               height: "100%",
-
               flexDirection: "row",
               alignItems: "center",
             }}
@@ -107,11 +106,13 @@ export default function Cart(params) {
                 width: "100%",
                 fontSize: 20,
                 color: "rgba(0,0,0,0.5)",
+                fontWeight: "bold",
               }}
             >
-              <Text style={{color:"orange",fontSize:16}}>$</Text>{props.amount}
+              <Text style={{ color: "orange", fontSize: 16 }}>$</Text>
+              {props.amount}
             </Text>
-            <AntDesign name="minuscircleo" size={24} color="black" />
+            <AntDesign name="minuscircle" size={24} color="black" />
             <Text style={{ marginHorizontal: 10 }}>1</Text>
             <AntDesign name="pluscircle" size={24} color="orange" />
           </View>
@@ -158,16 +159,19 @@ export default function Cart(params) {
           bikename="Pinarello Bike"
           subname="Mountain Bike"
           amount="1,700.00"
+          imageuri={require("../assets/images/bike4.png")}
         />
         <Checkout
           bikename="Brompton Bike"
           subname="Road Bike"
           amount="1,500.00"
+          imageuri={require("../assets/images/bike5.png")}
         />
         <Checkout
           bikename="Pinarello Bike"
           subname="Urban Bike"
           amount="3,400.00"
+          imageuri={require("../assets/images/bike3.png")}
         />
       </View>
 
@@ -184,26 +188,140 @@ export default function Cart(params) {
       >
         <View
           style={{
-            flexDirection: "row",
-            backgroundColor: "white",
-            borderRadius: 30,
-            marginTop: 20,
-            flex: 1,
+            flexDirection: "column",
+            backgroundColor: "rgba(0,0,0,0.1)",
+            borderRadius: 10,
+            top: 20,
+            margin: 20,
+            width: "100%",
             justifyContent: "center",
             alignItems: "center",
+            height: 150,
+            flex: 1,
           }}
         >
-          <View style={{ marginHorizontal: 30 }}>
-            <Text style={{ fontSize: 24 }}>Subtotal</Text>
-            <Text style={{ fontSize: 24 }}>Shipping Fee</Text>
-            <Text style={{ fontSize: 24 }}>----------------</Text>
-            <Text style={{ fontSize: 24 }}>Total</Text>
+          <View
+            style={{
+              flexDirection: "row",
+              width: "100%",
+              justifyContent: "center",
+              alignItems: "center",
+              margin: 10,
+            }}
+          >
+            <Text
+              style={{
+                fontSize: 22,
+                color: "rgba(0,0,0,0.5)",
+                textAlign: "left",
+                width: "100%",
+                flex: 1,
+                marginHorizontal: 20,
+              }}
+            >
+              Subtotal
+            </Text>
+            <Text
+              style={{
+                fontSize: 24,
+                fontWeight: "bold",
+                marginHorizontal: 20,
+                textAlign: "right",
+                width: "100%",
+                flex: 1,
+              }}
+            >
+              <Text style={{ color: "orange", fontSize: 16 }}>$</Text>3,400.00
+            </Text>
           </View>
-          <View style={{ marginHorizontal: 30 }}>
-            <Text style={{ fontSize: 24 }}>$100000</Text>
-            <Text style={{ fontSize: 24 }}>$1,00</Text>
-            <Text style={{ fontSize: 24, marginHorizontal: 0 }}>--------</Text>
-            <Text style={{ fontSize: 24 }}>$3,500</Text>
+          {/* Second */}
+          <View
+            style={{
+              flexDirection: "row",
+              width: "100%",
+              justifyContent: "center",
+              alignItems: "center",
+              margin: 5,
+            }}
+          >
+            <Text
+              style={{
+                fontSize: 22,
+                color: "rgba(0,0,0,0.5)",
+                textAlign: "center",
+
+                textAlign: "left",
+                width: "100%",
+                flex: 1,
+                marginHorizontal: 20,
+              }}
+            >
+              Shipping Fee
+            </Text>
+            <Text
+              style={{
+                fontSize: 24,
+                fontWeight: "bold",
+                textAlign: "center",
+
+                textAlign: "right",
+                width: "100%",
+                flex: 1,
+                marginHorizontal: 20,
+              }}
+            >
+              <Text style={{ color: "orange", fontSize: 16 }}>$</Text>1,00.00
+            </Text>
+          </View>
+          {/* Second End */}
+          {/* Line */}
+          <View
+            style={{
+              height: 1,
+              width: "100%",
+              borderRadius: 1,
+              borderWidth: 1,
+              borderColor: "black",
+              borderStyle: "dashed",
+            }}
+          ></View>
+          {/* Line End */}
+          <View
+            style={{
+              flexDirection: "row",
+              width: "100%",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Text
+              style={{
+                fontSize: 22,
+                color: "rgba(0,0,0,0.5)",
+                textAlign: "center",
+
+                textAlign: "left",
+                width: "100%",
+                flex: 1,
+                marginHorizontal: 20,
+              }}
+            >
+              Total
+            </Text>
+            <Text
+              style={{
+                fontSize: 24,
+                fontWeight: "bold",
+                textAlign: "center",
+
+                textAlign: "right",
+                width: "100%",
+                flex: 1,
+                marginHorizontal: 20,
+              }}
+            >
+              <Text style={{ color: "orange", fontSize: 16 }}>$</Text>3,500.00
+            </Text>
           </View>
         </View>
       </View>
@@ -214,6 +332,7 @@ export default function Cart(params) {
             justifyContent: "center",
             alignItems: "center",
             marginTop: 60,
+            top: 10,
           }}
         >
           <View
@@ -242,6 +361,7 @@ export default function Cart(params) {
           marginHorizontal: 20,
           margin: 0,
           marginTop: 20,
+          marginBottom: 10,
         }}
       >
         <Ionicons name="home" size={24} color="black" />
