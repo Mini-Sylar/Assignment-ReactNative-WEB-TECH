@@ -86,7 +86,17 @@ export default function Cart(params) {
               flexDirection: "row",
             }}
           >
-            <Text style={{ flex: 1, width: "100%" }}>IPSUM LOREM</Text>
+            <Text
+              style={{
+                flex: 1,
+                width: "100%",
+                fontSize: 24,
+                color: "rgba(0,0,0,0.5)",
+                fontWeight:"600"
+              }}
+            >
+              Pinarello Bike
+            </Text>
             <FontAwesome name="trash-o" size={24} color="black" />
           </View>
           <View
@@ -97,7 +107,7 @@ export default function Cart(params) {
               backgroundColor: "purple",
             }}
           >
-            <Text>IPSUM LOREM</Text>
+            <Text>Mountain Bike</Text>
           </View>
           <View
             style={{
@@ -108,39 +118,23 @@ export default function Cart(params) {
               flexDirection: "row",
             }}
           >
-            <Text style={{ flex: 1, width: "100%" }}>IPSUM LOREM</Text>
+            <Text
+              style={{
+                flex: 1,
+                width: "100%",
+                fontSize: 24,
+                color: "rgba(0,0,0,0.5)",
+              }}
+            >
+              1,000.00
+            </Text>
             <AntDesign name="minuscircleo" size={24} color="black" />
             <Text style={{ marginHorizontal: 10 }}>1</Text>
             <AntDesign name="pluscircle" size={24} color="orange" />
           </View>
         </View>
       </View>
-      {/* <View style={{ marginBottom: 30 }}>
-        <Checkout
-          bikename="Pinarello Bike"
-          subname="Mountain bike"
-          amount="1,700.00"
-          imageUri={require("../assets/images/bike3.png")}
-        />
-      </View>
-      <View style={{ marginBottom: 30 }}>
-        <Checkout
-          bikename="Brompton Bike"
-          subname="Road bike"
-          amount="1,500.00"
-          imageUri={require("../assets/images/bike4.png")}
-        />
-      </View>
-      <View style={{ marginBottom: 30 }}>
-        {" "}
-        <Checkout
-          bikename="Pinarello Bike"
-          subname="Urban bike"
-          amount="1,200.00"
-          imageUri={require("../assets/images/bike5.png")}
-        />
-      </View> */}
-
+      {/* NEWI  */}
       {/* <FlatList
         showsVerticalScrollIndicator={false}
         numColumns={1}
